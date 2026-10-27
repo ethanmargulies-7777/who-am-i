@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How Others See Me · Who Am I?</title>
+<meta name="description" content="A personal web essay by Ethan Margulies.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single story column on a dark house-lights-down stage; full-bleed stills between scenes; screenplay sluglines open each scene; sidebars sit in the margin like stage notes. */
+:root{
+  --night:#0f0e13;       /* the theater with the lights off */
+  --night-2:#18161d;     /* raised surfaces */
+  --ink:#ece5d8;         /* warm paper-white text */
+  --dim:#a39c90;         /* captions, secondary text */
+  --tungsten:#e5ad52;    /* the spotlight */
+  --curtain:#5a1a24;     /* velvet curtain, used for sidebars */
+  --rule:#2c2a33;
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --measure:36rem;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--night);overflow-x:clip}
+body{overflow-x:clip}
+body{margin:0;background:var(--night);color:var(--ink);font-family:var(--body);font-size:1.18rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+a{color:var(--tungsten);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--tungsten);outline-offset:3px;border-radius:2px}
+img{max-width:100%;display:block}
+
+.gutter{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* menu */
+.menu{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--night) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.menu-inner{max-width:72rem;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1.5rem;padding-block:.8rem}
+.brand{font-family:var(--display);font-style:italic;font-size:1.25rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+.menu ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
+.menu a.nav{font-family:var(--mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-decoration:none;padding-block:.3rem;border-bottom:1px solid transparent}
+.menu a.nav:hover{color:var(--ink)}
+.menu a.nav[aria-current="page"]{color:var(--tungsten);border-bottom-color:var(--tungsten)}
+
+/* opening of each page */
+.open{position:relative;max-width:72rem;margin:0 auto;padding-block:5rem 3rem;text-align:left}
+.open::before{content:"";position:absolute;inset:-2rem 0 auto;height:26rem;background:radial-gradient(ellipse at 30% 0%,color-mix(in srgb,var(--tungsten) 22%,transparent),transparent 62%);pointer-events:none;z-index:0}
+.open>*{position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tungsten);margin:0 0 1.2rem}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(3rem,9vw,6.6rem);line-height:.98;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1 em{font-style:italic;font-weight:400}
+.dek{font-family:var(--body);font-style:italic;font-size:clamp(1.25rem,2.4vw,1.6rem);line-height:1.45;color:var(--dim);max-width:38rem;margin:1.4rem 0 0}
+.byline{font-family:var(--mono);font-size:.82rem;letter-spacing:.06em;color:var(--ink);margin:2rem 0 0;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem}
+.byline span{color:var(--dim)}
+
+/* story column */
+.story{max-width:var(--measure);margin:0 auto}
+.story p{margin:0 0 1.35rem;hyphens:auto}
+.story p.lede::first-letter{font-family:var(--display);float:left;font-size:4.6rem;line-height:.82;padding:.35rem .6rem 0 0;color:var(--tungsten)}
+.slug{font-family:var(--mono);font-weight:500;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:3.4rem 0 1.4rem;padding-top:1.1rem;border-top:1px solid var(--rule);display:flex;gap:.8rem;align-items:baseline;flex-wrap:wrap}
+.slug::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--tungsten);box-shadow:0 0 12px var(--tungsten);flex:none;transform:translateY(-1px)}
+.slug span{color:var(--dim);font-weight:400}
+
+/* stills */
+figure{margin:3.2rem 0}
+figure.wide{max-width:72rem;margin-left:auto;margin-right:auto}
+figure img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;filter:saturate(.9) contrast(1.03)}
+figure.tall img{aspect-ratio:4/3}
+figcaption{font-family:var(--body);font-style:italic;font-size:.98rem;color:var(--dim);margin-top:.7rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+figcaption small{font-family:var(--mono);font-style:normal;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+
+/* sidebars, like stage notes in the margin */
+aside.note{background:var(--curtain);color:var(--ink);padding:1.5rem 1.6rem 1.6rem;margin:2.4rem 0;border-radius:2px;position:relative}
+aside.note .label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tungsten);margin:0 0 .6rem}
+aside.note p{font-family:var(--display);font-size:1.6rem;line-height:1.25;margin:0;text-wrap:balance}
+aside.note .stat{font-family:var(--display);font-size:4.2rem;line-height:1;color:var(--tungsten);display:block;margin-bottom:.4rem}
+aside.note cite{display:block;font-family:var(--mono);font-style:normal;font-size:.72rem;letter-spacing:.06em;color:color-mix(in srgb,var(--ink) 70%,transparent);margin-top:.9rem}
+@media (min-width:1240px){
+  .story{position:relative}
+  aside.note{position:absolute;right:calc(-1 * (16rem + 3rem));width:16rem;margin:0}
+  aside.note p{font-size:1.35rem}
+  aside.note .stat{font-size:3.4rem}
+}
+
+/* chapter cards on the home page */
+.paths{max-width:72rem;margin:4rem auto 0;padding-block:3rem 1rem;border-top:1px solid var(--rule)}
+.paths h2{font-family:var(--display);font-weight:500;font-size:clamp(2rem,4.5vw,3.2rem);margin:0 0 .4rem}
+.paths>p{color:var(--dim);margin:0 0 2rem;font-style:italic}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.4rem}
+.card{display:flex;flex-direction:column;background:var(--night-2);color:var(--ink);text-decoration:none;border:1px solid var(--rule);min-width:0;transition:border-color .2s ease}
+.card:hover{border-color:var(--tungsten)}
+.card img{aspect-ratio:4/3;object-fit:cover;width:100%;height:auto}
+.card .body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.card .num{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tungsten)}
+.card h3{font-family:var(--display);font-weight:500;font-size:1.7rem;line-height:1.1;margin:0}
+.card p{margin:0;color:var(--dim);font-size:1.02rem;line-height:1.5;flex:1}
+.card .go{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tungsten)}
+
+/* end of each page */
+.next{max-width:var(--measure);margin:4rem auto 0;padding-block:2.4rem 0;border-top:1px solid var(--rule)}
+.next .label{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:0 0 .5rem}
+.next a{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;text-decoration:none;color:var(--ink)}
+.next a:hover{color:var(--tungsten)}
+.next a span{color:var(--tungsten)}
+.fade{font-family:var(--display);font-style:italic;font-size:1.5rem;line-height:1.4;text-align:center;color:var(--ink);max-width:30rem;margin:3rem auto 0}
+
+footer{border-top:1px solid var(--rule);margin-top:5rem}
+footer .inner{max-width:72rem;margin:0 auto;padding-block:1.8rem 2.4rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.05em;color:var(--dim)}
+
+/* works cited */
+.cited p{padding-left:2.2rem;text-indent:-2.2rem;margin:0 0 1.1rem;font-size:1.08rem}
+
+@media (max-width:640px){
+  body{font-size:1.08rem}
+  .open{padding-block:3rem 2rem}
+  .story p.lede::first-letter{font-size:3.6rem}
+  aside.note p{font-size:1.35rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="menu gutter" aria-label="Site menu"><div class="menu-inner"><a class="brand" href="index.html">Who Am I?</a><ul><li><a class="nav" href="index.html">The Pilot</a></li><li><a class="nav" href="path-1.html" aria-current="page">Path 1</a></li><li><a class="nav" href="path-2.html">Path 2</a></li><li><a class="nav" href="path-3.html">Path 3</a></li><li><a class="nav" href="works-cited.html">Works Cited</a></li></ul></div></nav>
+<header class="open gutter"><p class="eyebrow">Path 1 of 3</p><h1>How others <em>see me.</em></h1><p class="dek">Front stage, back stage, and the parts we all play.</p></header>
+<main class="gutter">
+<figure class="wide"><img src="img/mic.jpg" alt="A single spotlight on a microphone on an empty stage" loading="lazy" width="1600" height="900"><figcaption><span>Front stage.</span><small>Still</small></figcaption></figure>
+<div class="story">
+<h2 class="slug">Int. Job interview <span>Age sixteen</span></h2>
+<p class="lede">Throughout life we are forced to put on a facade; we’re made to tell lies in our words and in our actions. When I was younger, I worked a few jobs, and every time I interviewed—whether it was to be a delivery driver or a groundskeeper—they would ask, “Why do you want this job?” This question always seemed so obnoxious to me. No one has a passion for delivering food. I was sixteen, sitting there thinking, “He knows I just want to get paid, right?” Yet I still gave both employers a made-up story about my interests and passion for whatever it was I was being paid to do. This is just a fraction of the acts we have to put on in order to ‘live.’</p>
+<aside class="note" aria-label="Goffman's big idea"><div class="label">Goffman's big idea</div><p>Life is a performance, and most of us are acting a lot more often than we'd admit.</p><cite>(Goffman)</cite></aside>
+<p>What's weird is that nobody in that room thought it was weird. The manager knew I was acting, I knew I was acting, and we both just went along with it like that was the normal way to talk to each other. The sociologist Erving Goffman wrote about exactly this back in 1959. He described everyday life as a stage. There's a "front stage," where we play the role people expect from us, and a "back stage," where we can drop the act and relax (Goffman). What gets me is that he also pointed out we don't really get to choose our front. Once you step into a role, like job applicant, society pretty much hands you the script. Nobody told me to say I was passionate about groundskeeping. I just knew that's what the part called for.</p>
+<h2 class="slug">Int./Ext. A night out <span>Big group of friends</span></h2>
+<p>It's not just job interviews either. Another place I feel like I play a role is when I'm going out with a big group of friends. I try to entertain everyone and play the part of a really happy, energetic person. I try to be the "fun" friend. Sometimes I'm truly the fun friend without even trying, but other times I feel like I'm putting on a show for everyone around me by doing idiotic things. The hard part is that from the outside those two nights probably look exactly the same. Nobody can tell which one is real and which one is a performance, and if I'm being honest, in the moment I can't always tell either. If my friends like the version of me that's loud and doing dumb stuff to get a laugh, then I start to wonder if that's who they think I am, and if that's who I'm supposed to be. I've captained and coached soccer teams too, and that comes with its own role. You're supposed to be the one who has it together even on the days you don't.</p>
+</div>
+<figure class="wide"><img src="img/mirror.jpg" alt="A man looking at his reflection in a broken mirror" loading="lazy" width="1600" height="900"><figcaption><span>The looking-glass self.</span><small>Still</small></figcaption></figure>
+<div class="story">
+<h2 class="slug">Int. The mirror <span>Other people's eyes</span></h2>
+<p>Way before Goffman, Charles Cooley came up with the idea of the "looking-glass self." His point was that we build our sense of who we are out of how we imagine other people see us (Cooley). Other people are the mirror. I think that's true for me. A lot of who I think I am comes from what I believe people think when they look at me, like whether I seem confident or whether I seem like I have it together.</p>
+<p>One person whose opinion really changed how I saw myself was my ex-girlfriend. The way she viewed me confused me. She would always assume the worst of me in every situation, always accusing me of being untruthful, when I've always seen myself as honest above all else. It really changed the way I viewed myself. I started to question who I really was and if I even liked who I am. Looking back, I think it hit as hard as it did because honesty was the one thing I was sure about. I could admit that I put on a show sometimes, at interviews or with my friends, but I always thought that underneath all of that I was a truthful person. When someone close to me kept seeing the opposite, the mirror stopped matching what I thought I looked like. And part of me started wondering if all the little performances I'd been putting on were adding up to something she could see and I couldn't.</p>
+<p>I'm not saying acting is all bad. You kind of have to act to get through life. You act to get a job, to get through awkward small talk, to be the person a situation needs you to be. The problem is when you act so much you start to forget there's a back stage at all. Alan Watts talks about the ego as a role we play and then forget we're playing (Watts). That's the part that scares me a little. If I'm always performing for someone, then which version is actually me? Maybe the answer isn't out there with other people. Maybe it's in my head.</p>
+</div>
+<div class="next gutter-free"><p class="label">Up next · Path 2</p><a href="path-2.html">How I see myself <span aria-hidden="true">&rarr;</span></a></div>
+</main>
+<footer class="gutter"><div class="inner"><span>Who Am I? Three Paths · a web essay by Ethan Margulies · WRTG 3020</span><span>Photographs from Unsplash</span></div></footer>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reality · Who Am I?</title>
+<meta name="description" content="A personal web essay by Ethan Margulies.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single story column on a dark house-lights-down stage; full-bleed stills between scenes; screenplay sluglines open each scene; sidebars sit in the margin like stage notes. */
+:root{
+  --night:#0f0e13;       /* the theater with the lights off */
+  --night-2:#18161d;     /* raised surfaces */
+  --ink:#ece5d8;         /* warm paper-white text */
+  --dim:#a39c90;         /* captions, secondary text */
+  --tungsten:#e5ad52;    /* the spotlight */
+  --curtain:#5a1a24;     /* velvet curtain, used for sidebars */
+  --rule:#2c2a33;
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --measure:36rem;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--night);overflow-x:clip}
+body{overflow-x:clip}
+body{margin:0;background:var(--night);color:var(--ink);font-family:var(--body);font-size:1.18rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+a{color:var(--tungsten);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--tungsten);outline-offset:3px;border-radius:2px}
+img{max-width:100%;display:block}
+
+.gutter{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* menu */
+.menu{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--night) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.menu-inner{max-width:72rem;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1.5rem;padding-block:.8rem}
+.brand{font-family:var(--display);font-style:italic;font-size:1.25rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+.menu ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
+.menu a.nav{font-family:var(--mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-decoration:none;padding-block:.3rem;border-bottom:1px solid transparent}
+.menu a.nav:hover{color:var(--ink)}
+.menu a.nav[aria-current="page"]{color:var(--tungsten);border-bottom-color:var(--tungsten)}
+
+/* opening of each page */
+.open{position:relative;max-width:72rem;margin:0 auto;padding-block:5rem 3rem;text-align:left}
+.open::before{content:"";position:absolute;inset:-2rem 0 auto;height:26rem;background:radial-gradient(ellipse at 30% 0%,color-mix(in srgb,var(--tungsten) 22%,transparent),transparent 62%);pointer-events:none;z-index:0}
+.open>*{position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tungsten);margin:0 0 1.2rem}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(3rem,9vw,6.6rem);line-height:.98;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1 em{font-style:italic;font-weight:400}
+.dek{font-family:var(--body);font-style:italic;font-size:clamp(1.25rem,2.4vw,1.6rem);line-height:1.45;color:var(--dim);max-width:38rem;margin:1.4rem 0 0}
+.byline{font-family:var(--mono);font-size:.82rem;letter-spacing:.06em;color:var(--ink);margin:2rem 0 0;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem}
+.byline span{color:var(--dim)}
+
+/* story column */
+.story{max-width:var(--measure);margin:0 auto}
+.story p{margin:0 0 1.35rem;hyphens:auto}
+.story p.lede::first-letter{font-family:var(--display);float:left;font-size:4.6rem;line-height:.82;padding:.35rem .6rem 0 0;color:var(--tungsten)}
+.slug{font-family:var(--mono);font-weight:500;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:3.4rem 0 1.4rem;padding-top:1.1rem;border-top:1px solid var(--rule);display:flex;gap:.8rem;align-items:baseline;flex-wrap:wrap}
+.slug::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--tungsten);box-shadow:0 0 12px var(--tungsten);flex:none;transform:translateY(-1px)}
+.slug span{color:var(--dim);font-weight:400}
+
+/* stills */
+figure{margin:3.2rem 0}
+figure.wide{max-width:72rem;margin-left:auto;margin-right:auto}
+figure img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;filter:saturate(.9) contrast(1.03)}
+figure.tall img{aspect-ratio:4/3}
+figcaption{font-family:var(--body);font-style:italic;font-size:.98rem;color:var(--dim);margin-top:.7rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+figcaption small{font-family:var(--mono);font-style:normal;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+
+/* sidebars, like stage notes in the margin */
+aside.note{background:var(--curtain);color:var(--ink);padding:1.5rem 1.6rem 1.6rem;margin:2.4rem 0;border-radius:2px;position:relative}
+aside.note .label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tungsten);margin:0 0 .6rem}
+aside.note p{font-family:var(--display);font-size:1.6rem;line-height:1.25;margin:0;text-wrap:balance}
+aside.note .stat{font-family:var(--display);font-size:4.2rem;line-height:1;color:var(--tungsten);display:block;margin-bottom:.4rem}
+aside.note cite{display:block;font-family:var(--mono);font-style:normal;font-size:.72rem;letter-spacing:.06em;color:color-mix(in srgb,var(--ink) 70%,transparent);margin-top:.9rem}
+@media (min-width:1240px){
+  .story{position:relative}
+  aside.note{position:absolute;right:calc(-1 * (16rem + 3rem));width:16rem;margin:0}
+  aside.note p{font-size:1.35rem}
+  aside.note .stat{font-size:3.4rem}
+}
+
+/* chapter cards on the home page */
+.paths{max-width:72rem;margin:4rem auto 0;padding-block:3rem 1rem;border-top:1px solid var(--rule)}
+.paths h2{font-family:var(--display);font-weight:500;font-size:clamp(2rem,4.5vw,3.2rem);margin:0 0 .4rem}
+.paths>p{color:var(--dim);margin:0 0 2rem;font-style:italic}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.4rem}
+.card{display:flex;flex-direction:column;background:var(--night-2);color:var(--ink);text-decoration:none;border:1px solid var(--rule);min-width:0;transition:border-color .2s ease}
+.card:hover{border-color:var(--tungsten)}
+.card img{aspect-ratio:4/3;object-fit:cover;width:100%;height:auto}
+.card .body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.card .num{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tungsten)}
+.card h3{font-family:var(--display);font-weight:500;font-size:1.7rem;line-height:1.1;margin:0}
+.card p{margin:0;color:var(--dim);font-size:1.02rem;line-height:1.5;flex:1}
+.card .go{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tungsten)}
+
+/* end of each page */
+.next{max-width:var(--measure);margin:4rem auto 0;padding-block:2.4rem 0;border-top:1px solid var(--rule)}
+.next .label{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:0 0 .5rem}
+.next a{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;text-decoration:none;color:var(--ink)}
+.next a:hover{color:var(--tungsten)}
+.next a span{color:var(--tungsten)}
+.fade{font-family:var(--display);font-style:italic;font-size:1.5rem;line-height:1.4;text-align:center;color:var(--ink);max-width:30rem;margin:3rem auto 0}
+
+footer{border-top:1px solid var(--rule);margin-top:5rem}
+footer .inner{max-width:72rem;margin:0 auto;padding-block:1.8rem 2.4rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.05em;color:var(--dim)}
+
+/* works cited */
+.cited p{padding-left:2.2rem;text-indent:-2.2rem;margin:0 0 1.1rem;font-size:1.08rem}
+
+@media (max-width:640px){
+  body{font-size:1.08rem}
+  .open{padding-block:3rem 2rem}
+  .story p.lede::first-letter{font-size:3.6rem}
+  aside.note p{font-size:1.35rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="menu gutter" aria-label="Site menu"><div class="menu-inner"><a class="brand" href="index.html">Who Am I?</a><ul><li><a class="nav" href="index.html">The Pilot</a></li><li><a class="nav" href="path-1.html">Path 1</a></li><li><a class="nav" href="path-2.html">Path 2</a></li><li><a class="nav" href="path-3.html" aria-current="page">Path 3</a></li><li><a class="nav" href="works-cited.html">Works Cited</a></li></ul></div></nav>
+<header class="open gutter"><p class="eyebrow">Path 3 of 3</p><h1><em>Reality.</em></h1><p class="dek">What happens when the story in my head runs into real life.</p></header>
+<main class="gutter">
+<figure class="wide"><img src="img/seats.jpg" alt="Rows of empty theater seats fading into darkness" loading="lazy" width="1600" height="900"><figcaption><span>The audience was me the whole time.</span><small>Still</small></figcaption></figure>
+<div class="story">
+<h2 class="slug">Int. Class, gym, couch <span>Every day</span></h2>
+<p class="lede">Reality is the hardest of the three for me to write about, because it's the one I spend the least time in. My life right now consists of waking up, going to class, hopefully making it to the gym, and then hanging out with my friends. It feels very repetitive. My plan for the future, as of now, is to get a finance job in New York City once I graduate. My goal is to be successful, yet every day I feel so behind. I know I could be doing more to support my goals and my future, but more often than not I find myself in limbo, not doing anything, losing myself on my phone.</p>
+<p>The word "behind" is interesting to me, because behind compared to what? I think I'm comparing myself to the version of me in my head, the one who already has the job, already lives in the city, already has it figured out. That version never has a boring Tuesday. So the real me, the one sitting in class or on the couch, is always going to lose that comparison. Sometimes I wonder if the finance job in New York is just my new Real Madrid, a future that feels so good to picture that picturing it starts to feel like enough.</p>
+<h2 class="slug">Ext. High school tryouts <span>Junior year</span></h2>
+<aside class="note" aria-label="The odds"><div class="label">The odds</div><span class="stat">5.7%</span><p>of high school senior boys who play soccer go on to play in college. The dream still felt real anyway.</p><cite>(“Estimated Probability”)</cite></aside>
+<p>The soccer dream is where I first felt the gap between the story in my head and real life. The odds were never great. According to NCAA estimates, only about 5.7 percent of high school senior boys who play soccer even go on to play in college, let alone professionally ("Estimated Probability"). I knew that somewhere in the back of my mind, but the dream still felt real while I was in it.</p>
+<p>My junior year of high school is when I realized my soccer dreams were done. I was going into the season feeling the best I had ever felt. It was the first tryout of the high school season and I was playing amazing, and then all of a sudden I felt so lightheaded. I went to the sideline and fought off passing out. I had to get picked up, and later that day I went to the doctor and they told me I had mono. It wasn't some devastating diagnosis, but it stunted my season. I didn't play for the first month or two, and by the time I was back my coach had all but forgotten about me. I made varsity, but I ended up sitting on the bench the whole season. By the time my senior year rolled around, I had fallen out of love with the game. I hated my coach and it felt meaningless to train. I gave up.</p>
+<p>When I think about it now, the dream didn't end in some big dramatic moment. There was no career-ending injury or final game. It ended quietly, on a bench, one game at a time. And a lot of it came back to how one person saw me. Once my coach stopped seeing me as a player who mattered, I slowly stopped seeing myself that way too. That's Cooley's looking glass again, just on a soccer field this time. The reality wasn't that I couldn't play. It was that I let somebody else's view of me decide whether the dream was worth chasing.</p>
+<p>Sometimes I think the stories I tell myself are part of what keeps me stuck. The biologist Robert Trivers has a theory about this. He argues that self-deception isn't just a glitch, it's something humans evolved to do, partly because believing your own story makes it easier to convince other people of it. But it comes with a cost, because it cuts you off from reality (Trivers). When I quit soccer, the story I told myself was that I didn't care anymore and that the game was meaningless. Maybe that was true. But it was also a lot easier to believe than the idea that I still wanted it and it just didn't work out. I think I do the same thing now when I tell myself I'll start working toward my goals tomorrow. The story feels better than reality, so I stay in it longer than I should.</p>
+<h2 class="slug">Int. Behind the eyes <span>The watcher</span></h2>
+<aside class="note" aria-label="The double self"><div class="label">The double self</div><p>Something in me is watching the whole time, even when the actor isn't listening.</p></aside>
+<p>This is where Watts and Tolle finally start to click for me. Watts says the ego, the "I" we work so hard to protect, is kind of a useful fiction (Watts). Tolle says the real self isn't the voice in your head at all, it's the awareness behind it, the part that can watch the mind instead of being trapped in it (Tolle). If they're right, then the performer from the first path and the dreamer from the second path are both the ego. They're the functional self, the one that gets the job, tells the story, and makes the plans. I'm not sure I'd go all the way with either of them, because most days that ego still feels like me. But I notice something. When I'm deep in a daydream, or deep in my phone, I can't really see what's happening around me. Eventually, though, I do. Something in me is watching the whole time, even when the actor isn't listening. Maybe that's the deeper self that sits underneath everything else.</p>
+</div>
+<figure class="wide"><img src="img/tv-off.jpg" alt="An old television switched off on a stool in an empty room" loading="lazy" width="1600" height="900"><figcaption><span>When the screen goes dark, someone is still sitting there.</span><small>Still</small></figcaption></figure>
+<div class="story">
+<h2 class="slug">Int. The audience <span>Now</span></h2>
+<p>So who am I? I don't think I'm any one of the three paths. I'm not just the version other people see, or the dreamer, or the guy whose plans didn't work out. Maybe that's the closest I can get to an answer. I'm the one who eventually notices. That's what I think <i>The Truman Show</i> gets right. Truman doesn't become free when the show ends. He becomes free when he starts noticing that something about his world doesn't add up.</p>
+<p>For me, being the one who notices means being hyperaware. I read people really well, and I think about every moment in my day, so I notice the small things about myself, like if I'm fidgeting. If I'm in a conversation and the person I'm talking to seems uninterested, I just shut off, and halfway through I lose all interest. So noticing isn't always peaceful for me. Sometimes it's just another way of watching myself perform. I'm not only the actor and the dreamer, I'm also the critic sitting in the front row, and the critic can be the harshest one in the room.</p>
+<p>But I think noticing is still the first step. Truman had to notice the light falling out of the sky and the same people walking past his house every morning before he could ever find the door. My version of the door probably isn't that dramatic. It might just be catching myself an hour into scrolling and actually putting the phone down, or catching myself mid-performance with my friends and letting myself be a little more real.</p>
+<p class="fade">The story keeps going, and I'll probably keep acting and keep dreaming, because I think that's part of being a person. But now I know there's someone in the audience, and he's paying attention.</p>
+</div>
+<div class="next gutter-free"><p class="label">The end · Sources</p><a href="works-cited.html">Works Cited <span aria-hidden="true">&rarr;</span></a></div>
+</main>
+<footer class="gutter"><div class="inner"><span>Who Am I? Three Paths · a web essay by Ethan Margulies · WRTG 3020</span><span>Photographs from Unsplash</span></div></footer>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How I See Myself · Who Am I?</title>
+<meta name="description" content="A personal web essay by Ethan Margulies.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single story column on a dark house-lights-down stage; full-bleed stills between scenes; screenplay sluglines open each scene; sidebars sit in the margin like stage notes. */
+:root{
+  --night:#0f0e13;       /* the theater with the lights off */
+  --night-2:#18161d;     /* raised surfaces */
+  --ink:#ece5d8;         /* warm paper-white text */
+  --dim:#a39c90;         /* captions, secondary text */
+  --tungsten:#e5ad52;    /* the spotlight */
+  --curtain:#5a1a24;     /* velvet curtain, used for sidebars */
+  --rule:#2c2a33;
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --measure:36rem;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--night);overflow-x:clip}
+body{overflow-x:clip}
+body{margin:0;background:var(--night);color:var(--ink);font-family:var(--body);font-size:1.18rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+a{color:var(--tungsten);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--tungsten);outline-offset:3px;border-radius:2px}
+img{max-width:100%;display:block}
+
+.gutter{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* menu */
+.menu{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--night) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.menu-inner{max-width:72rem;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1.5rem;padding-block:.8rem}
+.brand{font-family:var(--display);font-style:italic;font-size:1.25rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+.menu ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
+.menu a.nav{font-family:var(--mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-decoration:none;padding-block:.3rem;border-bottom:1px solid transparent}
+.menu a.nav:hover{color:var(--ink)}
+.menu a.nav[aria-current="page"]{color:var(--tungsten);border-bottom-color:var(--tungsten)}
+
+/* opening of each page */
+.open{position:relative;max-width:72rem;margin:0 auto;padding-block:5rem 3rem;text-align:left}
+.open::before{content:"";position:absolute;inset:-2rem 0 auto;height:26rem;background:radial-gradient(ellipse at 30% 0%,color-mix(in srgb,var(--tungsten) 22%,transparent),transparent 62%);pointer-events:none;z-index:0}
+.open>*{position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tungsten);margin:0 0 1.2rem}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(3rem,9vw,6.6rem);line-height:.98;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1 em{font-style:italic;font-weight:400}
+.dek{font-family:var(--body);font-style:italic;font-size:clamp(1.25rem,2.4vw,1.6rem);line-height:1.45;color:var(--dim);max-width:38rem;margin:1.4rem 0 0}
+.byline{font-family:var(--mono);font-size:.82rem;letter-spacing:.06em;color:var(--ink);margin:2rem 0 0;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem}
+.byline span{color:var(--dim)}
+
+/* story column */
+.story{max-width:var(--measure);margin:0 auto}
+.story p{margin:0 0 1.35rem;hyphens:auto}
+.story p.lede::first-letter{font-family:var(--display);float:left;font-size:4.6rem;line-height:.82;padding:.35rem .6rem 0 0;color:var(--tungsten)}
+.slug{font-family:var(--mono);font-weight:500;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:3.4rem 0 1.4rem;padding-top:1.1rem;border-top:1px solid var(--rule);display:flex;gap:.8rem;align-items:baseline;flex-wrap:wrap}
+.slug::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--tungsten);box-shadow:0 0 12px var(--tungsten);flex:none;transform:translateY(-1px)}
+.slug span{color:var(--dim);font-weight:400}
+
+/* stills */
+figure{margin:3.2rem 0}
+figure.wide{max-width:72rem;margin-left:auto;margin-right:auto}
+figure img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;filter:saturate(.9) contrast(1.03)}
+figure.tall img{aspect-ratio:4/3}
+figcaption{font-family:var(--body);font-style:italic;font-size:.98rem;color:var(--dim);margin-top:.7rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+figcaption small{font-family:var(--mono);font-style:normal;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+
+/* sidebars, like stage notes in the margin */
+aside.note{background:var(--curtain);color:var(--ink);padding:1.5rem 1.6rem 1.6rem;margin:2.4rem 0;border-radius:2px;position:relative}
+aside.note .label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tungsten);margin:0 0 .6rem}
+aside.note p{font-family:var(--display);font-size:1.6rem;line-height:1.25;margin:0;text-wrap:balance}
+aside.note .stat{font-family:var(--display);font-size:4.2rem;line-height:1;color:var(--tungsten);display:block;margin-bottom:.4rem}
+aside.note cite{display:block;font-family:var(--mono);font-style:normal;font-size:.72rem;letter-spacing:.06em;color:color-mix(in srgb,var(--ink) 70%,transparent);margin-top:.9rem}
+@media (min-width:1240px){
+  .story{position:relative}
+  aside.note{position:absolute;right:calc(-1 * (16rem + 3rem));width:16rem;margin:0}
+  aside.note p{font-size:1.35rem}
+  aside.note .stat{font-size:3.4rem}
+}
+
+/* chapter cards on the home page */
+.paths{max-width:72rem;margin:4rem auto 0;padding-block:3rem 1rem;border-top:1px solid var(--rule)}
+.paths h2{font-family:var(--display);font-weight:500;font-size:clamp(2rem,4.5vw,3.2rem);margin:0 0 .4rem}
+.paths>p{color:var(--dim);margin:0 0 2rem;font-style:italic}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.4rem}
+.card{display:flex;flex-direction:column;background:var(--night-2);color:var(--ink);text-decoration:none;border:1px solid var(--rule);min-width:0;transition:border-color .2s ease}
+.card:hover{border-color:var(--tungsten)}
+.card img{aspect-ratio:4/3;object-fit:cover;width:100%;height:auto}
+.card .body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.card .num{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tungsten)}
+.card h3{font-family:var(--display);font-weight:500;font-size:1.7rem;line-height:1.1;margin:0}
+.card p{margin:0;color:var(--dim);font-size:1.02rem;line-height:1.5;flex:1}
+.card .go{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tungsten)}
+
+/* end of each page */
+.next{max-width:var(--measure);margin:4rem auto 0;padding-block:2.4rem 0;border-top:1px solid var(--rule)}
+.next .label{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:0 0 .5rem}
+.next a{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;text-decoration:none;color:var(--ink)}
+.next a:hover{color:var(--tungsten)}
+.next a span{color:var(--tungsten)}
+.fade{font-family:var(--display);font-style:italic;font-size:1.5rem;line-height:1.4;text-align:center;color:var(--ink);max-width:30rem;margin:3rem auto 0}
+
+footer{border-top:1px solid var(--rule);margin-top:5rem}
+footer .inner{max-width:72rem;margin:0 auto;padding-block:1.8rem 2.4rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.05em;color:var(--dim)}
+
+/* works cited */
+.cited p{padding-left:2.2rem;text-indent:-2.2rem;margin:0 0 1.1rem;font-size:1.08rem}
+
+@media (max-width:640px){
+  body{font-size:1.08rem}
+  .open{padding-block:3rem 2rem}
+  .story p.lede::first-letter{font-size:3.6rem}
+  aside.note p{font-size:1.35rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="menu gutter" aria-label="Site menu"><div class="menu-inner"><a class="brand" href="index.html">Who Am I?</a><ul><li><a class="nav" href="index.html">The Pilot</a></li><li><a class="nav" href="path-1.html">Path 1</a></li><li><a class="nav" href="path-2.html" aria-current="page">Path 2</a></li><li><a class="nav" href="path-3.html">Path 3</a></li><li><a class="nav" href="works-cited.html">Works Cited</a></li></ul></div></nav>
+<header class="open gutter"><p class="eyebrow">Path 2 of 3</p><h1>How I <em>see myself.</em></h1><p class="dek">Movies, dreams, and the fantasies I get lost in.</p></header>
+<main class="gutter">
+<figure class="wide"><img src="img/cinema.jpg" alt="An empty old movie theater facing a lit screen" loading="lazy" width="1600" height="900"><figcaption><span>The movies I play in my head.</span><small>Still</small></figcaption></figure>
+<div class="story">
+<h2 class="slug">Int. Movie night <span>The Truman Show</span></h2>
+<p class="lede">If the first version of me lives in other people's eyes, the second one lives in my head, and my head runs mostly on movies and daydreams. One movie I keep coming back to is <i>The Truman Show</i>. Truman Burbank grows up thinking he lives a normal life in a perfect little town, but his whole life is actually a TV show. Everyone around him, his wife, his best friend, even his parents, is an actor, and millions of people are watching him without him knowing (<i>The Truman Show</i>). The movie stuck with me because it's such a mind-bending realization, figuring out that your whole life is just a performance. Truman played a role and people loved it, yet he always felt like something was off in his life. I can find myself playing those same kinds of roles.</p>
+<p>The difference is that Truman didn't know he was on a show, and most of the time I do. I know when I'm being the fun friend on purpose. I knew I was lying in those interviews. But I think the feeling is the same one Truman had, that sense that something is a little off and the life everyone's watching isn't quite the one you're actually living. And honestly, I'm not sure knowing makes it better. Truman at least had an excuse.</p>
+<p>The other thing the movie made me think about is that Truman's whole world was built to keep him inside it. Every time he wanted to leave, something pulled him back. I don't have producers or hidden cameras, but I do have my own head, and my head is really good at building worlds I don't want to leave.</p>
+</div>
+<figure class="wide"><img src="img/field.jpg" alt="A soccer field from above at night under stadium lights" loading="lazy" width="1600" height="900"><figcaption><span>The pitch I used to picture myself on.</span><small>Still</small></figcaption></figure>
+<div class="story">
+<h2 class="slug">Ext. Santiago Bernabéu · Night <span>A dream</span></h2>
+<p>The world my head builds most often is the future. I dream a lot. Not just at night. I mean during the day, in class, on a drive, lying in bed. I'm always imagining different futures for myself. I have a lot of dreams, but one that keeps coming back is me as a professional soccer player. It's been my dream since I was young. In it I'm playing for my favorite team, Real Madrid, and I feel free on the field. I can feel the wind blowing through my hair as I glide past a defender, and I feel the rush when I strike the ball into the back of the net and celebrate.</p>
+<p>What I notice about that dream is how much of it is just a feeling. It's not really about trophies or money or being famous. It's about being free, and being good at something without having to think about it. In the dream I'm not performing for anybody. I'm just playing. Last spring I studied abroad in Madrid, the same city as the team I used to picture myself playing for. I was there as a student, not a player, and that's kind of the whole gap between the dream and my life in one sentence.</p>
+<h2 class="slug">Int. Somewhere far away <span>A feeling, not a picture</span></h2>
+<p>The dream I get lost in the most, though, is about love. It's not really a picture, it's more of a feeling. The feeling that someone is sharing my heart, that they're there with me, and that I'm comfortable and safe enough to just be myself. I imagine going around the world with someone, starting a family, and growing old with someone at my side. I find myself wishing that dream was reality, and I can stay in it for a long time. When I put the two dreams next to each other, they're kind of asking for the same thing. On the field and with that person, I get to stop acting. Maybe that's why I go back to them so much. They're the only places, even if they're imaginary, where there's no front stage.</p>
+<aside class="note" aria-label="Mind-wandering"><div class="label">Mind-wandering</div><span class="stat">46.9%</span><p>of our waking hours are spent thinking about something other than what we're actually doing.</p><cite>(Killingsworth and Gilbert 932)</cite></aside>
+<p>It turns out I'm not the only one living half in my head. Researchers at Harvard used a phone app to check in on thousands of people throughout their day and found that people's minds wander almost half the time, about 46.9 percent of their waking hours. Even more interesting, the mind-wandering seemed to cause unhappiness, not the other way around (Killingsworth and Gilbert 932). That makes sense to me. When I'm dreaming about the perfect future, the present always feels a little worse by comparison. It's kind of ironic that they used a phone to study it, because these days my phone is where a lot of my mind-wandering happens. Scrolling is just daydreaming that someone else wrote for you.</p>
+</div>
+<figure class="wide"><img src="img/window.jpg" alt="An open window looking out over a foggy green valley" loading="lazy" width="1600" height="900"><figcaption><span>Looking out at a future that isn't here yet.</span><small>Still</small></figcaption></figure>
+<div class="story">
+<p>Eckhart Tolle would say this is just the mind doing what it always does. In "You Are Not Your Mind," he argues that we identify so much with our thoughts that we end up living in the past or the future and almost never in the now (Tolle). I don't fully agree with him. I think dreaming is part of what makes life worth anything, and I don't want to give it up. But I do think there's a risk. If the self I see in my head gets too far ahead of what's actually happening, I start living for a version of my life that doesn't exist. And sooner or later, reality shows up to check on that version.</p>
+</div>
+<div class="next gutter-free"><p class="label">Up next · Path 3</p><a href="path-3.html">Reality <span aria-hidden="true">&rarr;</span></a></div>
+</main>
+<footer class="gutter"><div class="inner"><span>Who Am I? Three Paths · a web essay by Ethan Margulies · WRTG 3020</span><span>Photographs from Unsplash</span></div></footer>
+</body>
+</html>
